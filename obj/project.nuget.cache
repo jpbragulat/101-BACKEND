@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "favHi1gp3d0mAMRaN/4s422QYY6GZoVL/lg6tO49vRhOiuKy5yXcaeb0z+3OSCFYDVNpxebOZJyZZZ7rJV0ZXQ==",
+  "dgSpecHash": "eY6moaPq62NIFGDFAmOcm929uVIvXpA2xkdo2+PwKNvtfGuOKFzCMy3Dgt9A3iObskZrR0mkLYQ79tnBwKIGvg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\stir38\\Source\\Repos\\jpbragulat\\101.API\\101.API\\101.API.csproj",
+  "projectFilePath": "C:\\PROYECTOS\\BACKEND\\101.API\\101.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\stir38\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\stir38\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

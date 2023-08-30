@@ -20,23 +20,23 @@ namespace _101.API.Controllers
         {
             _context = context;
         }
-        /*
+        
         [HttpGet("GetAllPilots")]
         public List<Pilots> Get()
         {
             return _context.Pilots.ToList();
         }
-        */
+        
         [HttpGet("GetAllPlanes")]
         public List<Planes> GetPlanes()
         {   
             return _context.Planes.ToList();
         }
                
-        /*[HttpGet("GetPilotById{id}")]
+        [HttpGet("GetPilotById/{id}")]
         public Pilots GetById(int id)
         {
-            var pilotFound = _context.Pilots.Where(x => x.pilot_id == id).FirstOrDefault();
+            var pilotFound = _context.Pilots.Where(x => x.PilotId == id).FirstOrDefault();
             return pilotFound;
         }
 
@@ -47,7 +47,7 @@ namespace _101.API.Controllers
             return planeFound;
         }
         
-
+        
         [HttpPost("AddPilot")]
         public List<Pilots> AddPilot(Pilots pilot)
         {
@@ -55,7 +55,7 @@ namespace _101.API.Controllers
             _context.SaveChanges();
             return _context.Pilots.ToList(); //post puede ser void
         }
-        */
+        
         [HttpPost("AddPlane")]
         public List<Planes> AddPlane(Planes plane)
         {
@@ -63,23 +63,23 @@ namespace _101.API.Controllers
             _context.SaveChanges();
             return _context.Planes.ToList();
         }
-        /*
+        
         
         [HttpPut("UpdatePilot")]
         public List<Pilots> UpdatePilot(Pilots request)
         {
-            var dbPilot = _context.Pilots.Find(request.pilot_id);
-            dbPilot.user_name = request.user_name;
-            dbPilot.first_name = request.first_name;
-            dbPilot.last_name = request.last_name;
-            dbPilot.flight_hours = request.flight_hours;
-            dbPilot.pilot_license_id = request.pilot_license_id;
-            dbPilot.country = request.country;
+            var dbPilot = _context.Pilots.Find(request.PilotId);
+            dbPilot.FirstName = request.FirstName;
+            dbPilot.LastName = request.LastName;
+            dbPilot.FlightHours = request.FlightHours;
+            dbPilot.PilotLicenseId = request.PilotLicenseId;
+           
             _context.SaveChanges();
             return _context.Pilots.ToList();
-
+            
         }
-        */
+
+        
         [HttpPut("UpdatePlane")]
         public List<Planes> UpdatePlane(Planes requestPlane)
         {
@@ -93,16 +93,16 @@ namespace _101.API.Controllers
             _context.SaveChanges();
             return _context.Planes.ToList();
         }
-        /*
+        
         [HttpDelete("DeletePilot/{id}")]
         public List<Pilots> DeletePilotxId(int id)
         {
-            var dbDeletePilot = _context.Pilots.Where(x => x.pilot_id == id).FirstOrDefault();
+            var dbDeletePilot = _context.Pilots.Where(x => x.PilotId == id).FirstOrDefault();
             _context.Pilots.Remove(dbDeletePilot);
             _context.SaveChanges();
             return _context.Pilots.ToList();
         }
-        */
+        
         [HttpDelete("DeletePlane/{id}")]
         public List<Planes> DeletePlanexId(int id)
         {
@@ -112,7 +112,7 @@ namespace _101.API.Controllers
 
             return _context.Planes.ToList();
         }
-        /*
-     */
+        
+     
     }
 }
