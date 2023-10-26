@@ -20,6 +20,7 @@ namespace _101.API.Data
 
         public DbSet<Pilots> Pilots { get; set; } // tiene q llamarse igual que la DB
         public DbSet<Planes> Planes { get; set; }
+        public DbSet<Reservations> Reservations { get; set; }
 
        
     }

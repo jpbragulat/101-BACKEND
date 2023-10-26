@@ -32,7 +32,15 @@ namespace _101.API.Controllers
         {   
             return _context.Planes.ToList();
         }
-               
+
+        [HttpGet("GetAllReservations")]
+        public List<Reservations> GetReservations()
+        {
+            return _context.Reservations.ToList();
+        }
+
+
+
         [HttpGet("GetPilotById/{id}")]
         public Pilots GetById(int id)
         {
@@ -63,8 +71,22 @@ namespace _101.API.Controllers
             _context.SaveChanges();
             return _context.Planes.ToList();
         }
-        
-        
+
+        [HttpPost("AddReservation")] // esta mal , tengo q setear q reciba el numero de ID del piloto y avion elegidos para generar esta nueva reserva.
+        public List<Reservations> AddReservation(int pilotID, int planeID)
+        {
+
+            var pilotFound = _context.Pilots.Where(x => x.PilotId == pilotID).FirstOrDefault();
+            var planeFound = _context.Planes.Where(x => x.plane_id == planeID).FirstOrDefault();
+            //estoy buscando al pedo si ya tengo el id armo la reserva con esos numeros y listo... pero par q el FK tonces?
+
+            //_context.Reservations.Add(reservation);
+            //_context.SaveChanges();
+            //return _context.Reservations.ToList();
+            return _context.Reservations.ToList();
+        }
+
+
         [HttpPut("UpdatePilot")]
         public List<Pilots> UpdatePilot(Pilots request)
         {
