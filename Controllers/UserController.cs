@@ -5,6 +5,7 @@ using _101.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.AspNetCore.Components.Forms;
+using System.Net;
 
 // probando git
 namespace _101.API.Controllers
@@ -73,17 +74,13 @@ namespace _101.API.Controllers
         }
 
         [HttpPost("AddReservation")] // esta mal , tengo q setear q reciba el numero de ID del piloto y avion elegidos para generar esta nueva reserva.
-        public List<Reservations> AddReservation(int pilotID, int planeID)
+        public HttpStatusCode AddReservation(Reservations reservation) //firma, no hace falta definir todas la variables denuevo porq ya le puse q es tipo Reservations ya sabe q tiene q recibir
         {
+            var totalHours = reservation.FinishDateTime - reservation.StartDateTime;
+            reservation.TotalTimeReservation = totalHours.TotalMinutes;
+            _context.Reservations.Add(reservation);
 
-            var pilotFound = _context.Pilots.Where(x => x.PilotId == pilotID).FirstOrDefault();
-            var planeFound = _context.Planes.Where(x => x.plane_id == planeID).FirstOrDefault();
-            //estoy buscando al pedo si ya tengo el id armo la reserva con esos numeros y listo... pero par q el FK tonces?
-
-            //_context.Reservations.Add(reservation);
-            //_context.SaveChanges();
-            //return _context.Reservations.ToList();
-            return _context.Reservations.ToList();
+            return HttpStatusCode.OK;
         }
 
 
