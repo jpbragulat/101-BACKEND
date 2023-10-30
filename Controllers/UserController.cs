@@ -79,6 +79,7 @@ namespace _101.API.Controllers
             var totalHours = reservation.FinishDateTime - reservation.StartDateTime;
             reservation.TotalTimeReservation = totalHours.TotalMinutes;
             _context.Reservations.Add(reservation);
+            _context.SaveChanges();
 
             return HttpStatusCode.OK;
         }

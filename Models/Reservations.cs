@@ -18,10 +18,11 @@ namespace _101.API.Models
 
         public DateTime StartDateTime { get; set; }
         public DateTime FinishDateTime { get; set; }
-        public int TotalTimeReservation { get; set; } // cuanto tiempo esta en uso el avion
+        public double TotalTimeReservation { get; set; } // cuanto tiempo esta en uso el avion
 
 
 
 
     }
 }
+    
