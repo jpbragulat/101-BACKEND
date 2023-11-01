@@ -113,6 +113,21 @@ namespace _101.API.Controllers
             _context.SaveChanges();
             return _context.Planes.ToList();
         }
+
+        [HttpPut("UpdateReservation")]
+        public HttpStatusCode UpdateReservation(Reservations requestReservation)
+        {
+            var dbReservation = _context.Reservations.Find(requestReservation.ReservationId);
+            dbReservation.ReservationId = requestReservation.ReservationId;
+            dbReservation.PilotId = requestReservation.PilotId;
+            dbReservation.plane_id = requestReservation.plane_id;
+            dbReservation.StartDateTime = requestReservation.StartDateTime; 
+            dbReservation.FinishDateTime = requestReservation.FinishDateTime;
+            dbReservation.TotalTimeReservation = requestReservation.TotalTimeReservation; // mmm habria q hacer la cuenta denuevo ?
+            _context.SaveChanges();
+
+            return HttpStatusCode.OK;
+        }
         
         [HttpDelete("DeletePilot/{id}")]
         public List<Pilots> DeletePilotxId(int id)
@@ -132,7 +147,16 @@ namespace _101.API.Controllers
 
             return _context.Planes.ToList();
         }
-        
-     
+
+        [HttpDelete("DeleteReservation/{id}")]
+        public HttpStatusCode DeleteReservationxId(int id)
+        {
+            var dbDeleteReservation = _context.Reservations.Where(x => x.ReservationId == id).FirstOrDefault();
+            _context.Reservations.Remove(dbDeleteReservation);
+            _context.SaveChanges();
+
+            return HttpStatusCode.OK;
+        }
+
     }
 }
